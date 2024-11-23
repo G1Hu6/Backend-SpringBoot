@@ -3,6 +3,7 @@ package com.springboot_mvc.controllers;
 import com.springboot_mvc.dto.StudentDTO;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 // @RestController is implementing from @Controller and @ResponseBody
@@ -29,7 +30,7 @@ public class StudentController {
 
     @GetMapping(path = "/{studentId}")
     public StudentDTO getStudentById(@PathVariable(name = "studentId") Long id){
-        return new StudentDTO("Pranav Patil", "Kolhapur", id, true , new Date());
+        return new StudentDTO("Pranav Patil", "Kolhapur", id, true , LocalDate.now());
     }
 
     /*

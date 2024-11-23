@@ -1,6 +1,6 @@
 package com.springboot_mvc.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 // Simple DTO(Data Transfer Object) for communicate between client and controllers
 public class StudentDTO {
@@ -13,14 +13,14 @@ public class StudentDTO {
 
     private Boolean isPassed;
 
-    private Date resultDate;
+    private LocalDate resultDate;
 
     // Constructors
     public StudentDTO() {
 
     }
 
-    public StudentDTO(String name, String address, Long id, Boolean isPassed, Date resultDate) {
+    public StudentDTO(String name, String address, Long id, Boolean isPassed, LocalDate resultDate) {
         this.name = name;
         this.address = address;
         this.id = id;
@@ -53,11 +53,11 @@ public class StudentDTO {
         this.id = id;
     }
 
-    public Date getResultDate() {
+    public LocalDate getResultDate() {
         return resultDate;
     }
 
-    public void setResultDate(Date resultDate) {
+    public void setResultDate(LocalDate resultDate) {
         this.resultDate = resultDate;
     }
 

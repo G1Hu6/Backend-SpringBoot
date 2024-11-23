@@ -1,7 +1,9 @@
 package com.springboot_mvc.controllers;
 
+import com.springboot_mvc.dto.StudentDTO;
 import com.springboot_mvc.entities.StudentEntity;
 import com.springboot_mvc.repositories.StudentRepository;
+import com.springboot_mvc.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,20 +14,22 @@ import java.util.List;
 public class DBController {
 
     @Autowired
-    private StudentRepository stdRepo;
+    private StudentService studentService;
 
     @GetMapping
-    public List<StudentEntity> getAllStudentsFromH2DB(){
-       return stdRepo.findAll();
+    public List<StudentDTO> getAllStudentsFromH2DB(){
+
+        return studentService.getAllStudents();
     }
 
     @GetMapping(path = "/{stdId}")
-    public StudentEntity getStudentByIdFromH2DB(@PathVariable Long stdId){
-        return stdRepo.findById(stdId).orElse(null);
+    public StudentDTO getStudentByIdFromH2DB(@PathVariable Long stdId){
+        return studentService.getStudentById(stdId);
     }
 
     @PostMapping
-    public StudentEntity insertStudentToH2DB(@RequestBody StudentEntity student){
-        return stdRepo.save(student);
+    public StudentDTO insertStudentToH2DB(@RequestBody StudentDTO student){
+
+        return studentService.insertStudent(student);
     }
 }
