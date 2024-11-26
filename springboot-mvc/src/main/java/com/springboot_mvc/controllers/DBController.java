@@ -2,6 +2,7 @@ package com.springboot_mvc.controllers;
 
 import com.springboot_mvc.dto.StudentDTO;
 import com.springboot_mvc.services.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,8 +31,9 @@ public class DBController {
         return studentDTO.map(studentDTO1 -> ResponseEntity.ok(studentDTO1)).orElse(ResponseEntity.notFound().build());
     }
 
+    // @Valid annotation is added to ensure that dto class must have valid fields.
     @PostMapping
-    public ResponseEntity<StudentDTO> insertStudentToH2DB(@RequestBody StudentDTO student){
+    public ResponseEntity<StudentDTO> insertStudentToH2DB(@RequestBody @Valid StudentDTO student){
 
         return new ResponseEntity<>(studentService.insertStudent(student), HttpStatus.CREATED);
     }

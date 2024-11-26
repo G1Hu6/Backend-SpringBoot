@@ -30,7 +30,7 @@ public class StudentController {
 
     @GetMapping(path = "/{studentId}")
     public StudentDTO getStudentById(@PathVariable(name = "studentId") Long id){
-        return new StudentDTO("Pranav Patil", "Kolhapur", id, true , LocalDate.now());
+        return new StudentDTO("Pranav Patil","pranav@gmail.com","Kolhapur" ,123456.00,20,"USER",id, true , LocalDate.now());
     }
 
     /*
