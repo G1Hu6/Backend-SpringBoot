@@ -1,8 +1,18 @@
 package com.springboot_mvc.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDate;
 
 // Simple DTO(Data Transfer Object) for communicate between client and controllers
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class StudentDTO {
 
     private String name;
@@ -11,61 +21,8 @@ public class StudentDTO {
 
     private Long id;
 
+    @JsonProperty("isPassed")
     private Boolean isPassed;
 
     private LocalDate resultDate;
-
-    // Constructors
-    public StudentDTO() {
-
-    }
-
-    public StudentDTO(String name, String address, Long id, Boolean isPassed, LocalDate resultDate) {
-        this.name = name;
-        this.address = address;
-        this.id = id;
-        this.isPassed = isPassed;
-        this.resultDate = resultDate;
-    }
-
-    // Getters and Setters
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDate getResultDate() {
-        return resultDate;
-    }
-
-    public void setResultDate(LocalDate resultDate) {
-        this.resultDate = resultDate;
-    }
-
-    public Boolean getPassed() {
-        return isPassed;
-    }
-
-    public void setPassed(Boolean passed) {
-        isPassed = passed;
-    }
 }

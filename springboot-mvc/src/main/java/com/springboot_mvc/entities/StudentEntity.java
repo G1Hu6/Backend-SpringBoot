@@ -1,5 +1,6 @@
 package com.springboot_mvc.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +33,7 @@ public class StudentEntity {
 
     private String address;
 
+    @JsonProperty("isPassed")
     private Boolean isPassed;
 
     private LocalDate resultDate;
