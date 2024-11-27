@@ -1,6 +1,7 @@
 package com.springboot_mvc.controllers;
 
 import com.springboot_mvc.dto.StudentDTO;
+import com.springboot_mvc.exceptions.ResponseNotFoundException;
 import com.springboot_mvc.services.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
@@ -28,7 +30,9 @@ public class DBController {
     @GetMapping(path = "/{stdId}")
     public ResponseEntity<StudentDTO> getStudentByIdFromH2DB(@PathVariable Long stdId){
         Optional<StudentDTO> studentDTO = studentService.getStudentById(stdId);
-        return studentDTO.map(studentDTO1 -> ResponseEntity.ok(studentDTO1)).orElse(ResponseEntity.notFound().build());
+        return studentDTO
+                .map(studentDTO1 -> ResponseEntity.ok(studentDTO1))
+                .orElseThrow(() -> new ResponseNotFoundException("Student not found with id :" + stdId));
     }
 
     // @Valid annotation is added to ensure that dto class must have valid fields.
@@ -56,4 +60,11 @@ public class DBController {
         if(isDeleted) return ResponseEntity.ok(true);
         return ResponseEntity.notFound().build();
     }
+
+    // Use @ExceptionHandler annotation to handle specific exception in controller
+    /*
+    @ExceptionHandler
+    public ResponseEntity<String> handleStudentNotFound(NoSuchElementException exception){
+        return new ResponseEntity<>("Student not found", HttpStatus.NOT_FOUND);
+    }*/
 }

@@ -2,6 +2,7 @@ package com.springboot_mvc.services;
 
 import com.springboot_mvc.dto.StudentDTO;
 import com.springboot_mvc.entities.StudentEntity;
+import com.springboot_mvc.exceptions.ResponseNotFoundException;
 import com.springboot_mvc.repositories.StudentRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,19 +49,20 @@ public class StudentService {
                 .collect(Collectors.toList());
     }
 
-    public Boolean isStudentExistsById(Long id){
-        return studentRepository.existsById(id);
+    public void isStudentExistsById(Long id){
+        boolean isExists = studentRepository.existsById(id);
+        if(!isExists)throw new ResponseNotFoundException("Student not found with id :" + id);
     }
 
     public StudentDTO updateStudentById(StudentDTO studentDTO, Long id){
+        isStudentExistsById(id);
         StudentEntity studentEntity = modelMapper.map(studentDTO, StudentEntity.class);
         studentEntity.setId(id);
         return modelMapper.map(studentRepository.save(studentEntity), StudentDTO.class);
     }
 
     public StudentDTO partiallyUpdateStudentById(Map<String, Object> updates, Long id){
-        boolean isExists = isStudentExistsById(id);
-        if(!isExists)return null;
+        isStudentExistsById(id);
         StudentEntity studentEntity = studentRepository.findById(id).get(); // Not null
         updates.forEach((field,value) -> {
             Field fieldToBeUpdate =  ReflectionUtils.findField( StudentEntity.class, field);
@@ -74,8 +76,7 @@ public class StudentService {
     }
 
     public Boolean deleteStudentById(Long id){
-        boolean isExists = isStudentExistsById(id);
-        if(!isExists)return false;
+        isStudentExistsById(id);
         studentRepository.deleteById(id);
         return true;
     }
