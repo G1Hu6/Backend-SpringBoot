@@ -1,6 +1,7 @@
 package com.springboot_mvc.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.springboot_mvc.annotations.StudentRoleValidation;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,7 +38,8 @@ public class StudentDTO {
     @Min(value = 18, message = "Minimum value of age 18")
     private Integer age;
 
-    @Pattern(regexp = "^(USER|ADMIN)$", message = "Role must be ADMIN or USER")
+    //@Pattern(regexp = "^(USER|ADMIN)$", message = "Role must be ADMIN or USER")       // Using Custom annotation
+    @StudentRoleValidation
     @NotBlank(message = "Role must be not null and valid")
     private String role;
 
