@@ -2,6 +2,7 @@ package com.rest.services;
 
 import com.rest.dto.DepartmentDto;
 import com.rest.entities.DepartmentEntity;
+import com.rest.exceptions.ResourceNotFoundException;
 import com.rest.repository.DepartmentRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,24 +35,31 @@ public class DepartmentService{
                 .toList();
     }
 
-    public boolean isDepartmentExistsById(Long id){
-        return departmentRepository.existsById(id);
+    public void isDepartmentExistsById(Long id){
+        boolean isExists =  departmentRepository.existsById(id);
+        if(!isExists) throw new ResourceNotFoundException("Department not found with id : " + id);
     }
 
-    public DepartmentDto insertNewDepartment(DepartmentDto departmentDto, Long id){
+    public boolean deleteDepartmentById(Long id){
+        isDepartmentExistsById(id);
+        departmentRepository.deleteById(id);
+        return true;
+    }
+
+    public DepartmentDto insertNewDepartment(DepartmentDto departmentDto){
+        DepartmentEntity departmentEntity = departmentRepository.save(modelMapper.map(departmentDto, DepartmentEntity.class));
+        return modelMapper.map(departmentEntity, DepartmentDto.class);
+    }
+
+    public DepartmentDto updateDepartment(DepartmentDto departmentDto, Long id){
+        isDepartmentExistsById(id);
         DepartmentEntity departmentEntity = modelMapper.map(departmentDto, DepartmentEntity.class);
         departmentEntity.setId(id);
         return modelMapper.map(departmentRepository.save(departmentEntity), DepartmentDto.class);
     }
 
-    public boolean deleteDepartmentById(Long id){
-        boolean isExists = isDepartmentExistsById(id);
-        if(!isExists) return false;
-        departmentRepository.deleteById(id);
-        return true;
-    }
-
-    public DepartmentDto updateDepartment(Map<String, Object> updates, Long id){
+    public DepartmentDto partiallyUpdateDepartment(Map<String, Object> updates, Long id){
+        isDepartmentExistsById(id);
         DepartmentEntity departmentEntity = departmentRepository.findById(id).get();
 
         updates.forEach(
