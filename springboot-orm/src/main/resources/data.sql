@@ -1,0 +1,1 @@
+INSERT INTO products(sku,name,price,quantity) VALUES("king", "Snaks",12,1),("king123", "Makines",349,4),("king234", "peaas",34,7);
