@@ -1,6 +1,8 @@
 package com.orm.repositories;
 
 import com.orm.entities.Product;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -25,6 +27,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findByNameContainsIgnoreCase(String name);
 
+    // Find with sorting and pagination
+    List<Product> findByNameContainsIgnoreCase(String name, Pageable pageable);
+
     //Optional<Product> findByNameAndPrice(String name, BigInteger price);
 
     @Query("select p from Product p where p.name=?1 and p.price=?2")
@@ -33,4 +38,12 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Optional<Product>> findByNameOrPrice(String name, BigInteger price);
 
     List<Product> findDistinctByName(String name);
+
+    // Sorting using method queries
+    List<Product> findByOrderByPrice();
+
+    List<Product> findByNameOrderByPrice(String name);
+
+    // Sorting using Sort class(Most used)
+    List<Product> findBy(Sort sort);
 }

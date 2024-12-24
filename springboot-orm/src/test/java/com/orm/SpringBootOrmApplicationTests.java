@@ -23,19 +23,19 @@ class SpringBootOrmApplicationTests {
 
 	@Test
 	void testInsertData(){
-		/* Lombok error
+
 		Product product = Product.builder()
-				.sku("keyboard12E")
-				.price(BigInteger.valueOf(2000))
-				.name("Keyboard")
-				.quantity(4)
+				.sku("Compass123")
+				.price(BigInteger.valueOf(200))
+				.name("Compass")
+				.quantity(1)
 				.build();
-		*/
-		Product product = new Product();
-		product.setSku("lakme");
-		product.setQuantity(1);
-		product.setName("lakmesa");
-		product.setPrice(BigInteger.valueOf(2344));
+
+//		Product product = new Product();
+//		product.setSku("lakme");
+//		product.setQuantity(1);
+//		product.setName("lakmesa");
+//		product.setPrice(BigInteger.valueOf(2344));
 		System.out.println(productRepo.save(product));
 	}
 
@@ -74,5 +74,6 @@ class SpringBootOrmApplicationTests {
 
 		List<Product> filterProducts6 = productRepo.findDistinctByName("ParleG");
 		System.out.println(filterProducts6);
+
 	}
 }
