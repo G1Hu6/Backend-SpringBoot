@@ -3,6 +3,8 @@ package com.mapping.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,7 +22,13 @@ public class DepartmentEntity {
     @Column(nullable = false)
     private String title;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "manager_id")
     private EmployeeEntity manager;
+
+    @OneToMany(mappedBy = "workerDepartment")
+    private Set<EmployeeEntity> workers;
+
+    @ManyToMany(mappedBy = "freelancerDepartments")
+    private Set<EmployeeEntity> freelancers;
 }
