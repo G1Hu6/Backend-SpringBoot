@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "0bebb876-4516-4d03-82f9-18ab65e37697",
+		"name": "Assignment-ORM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35304566"
+	},
+	"item": [
+		{
+			"name": "GET All professors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/professors",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/students",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All subjects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/subjects",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subjects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET professor by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/professors/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET student by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/students/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"students",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET subject by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/subjects/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subjects",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST professors",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/professors",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/students",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST subject",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/subjects",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subjects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Allocate Teacher for subject",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/subjects/3/professor/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subjects",
+						"3",
+						"professor",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Allocate Student to Teacher",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/professors/1/student/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professors",
+						"1",
+						"student",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Allocate Subject To Student",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/students/1/subject/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"students",
+						"1",
+						"subject",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Allocated professor for subject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/subjects/allocatedProfessor/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subjects",
+						"allocatedProfessor",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
