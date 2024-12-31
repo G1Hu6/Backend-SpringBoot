@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.web.client.RestClient;
 
 @Configuration
 @EnableJpaAuditing(auditorAwareRef = "getCurrentAuditorAware")
@@ -17,7 +18,7 @@ public class AppConfigs {
     }
 
     @Bean
-    public AuditorAware<String> getCurrentAuditorAware(){
+    public AuditorAware<String> getCurrentAuditorAware() {
         return new AuditorAwareImpl();
     }
 }
