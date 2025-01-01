@@ -13,7 +13,7 @@ import java.text.AttributedCharacterIterator;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "products")
+@RequestMapping(path = "/products")
 public class ProductController {
 
     @Autowired
