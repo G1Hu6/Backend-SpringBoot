@@ -1,0 +1,194 @@
+2025-01-01T14:53:52.137+05:30  INFO 4628 --- [springboot-production-ready] [main] pringbootProductionReadyApplicationTests : Starting SpringbootProductionReadyApplicationTests using Java 23.0.1 with PID 4628 (started by pranav in /home/pranav/Spring/Backend-SpringBoot/springboot-production-ready)
+2025-01-01T14:53:52.140+05:30  INFO 4628 --- [springboot-production-ready] [main] pringbootProductionReadyApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2025-01-01T14:53:53.394+05:30  INFO 4628 --- [springboot-production-ready] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-01T14:53:53.551+05:30  INFO 4628 --- [springboot-production-ready] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 132 ms. Found 1 JPA repository interface.
+2025-01-01T14:53:54.487+05:30  INFO 4628 --- [springboot-production-ready] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-01T14:53:54.570+05:30  INFO 4628 --- [springboot-production-ready] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-01T14:53:54.617+05:30  INFO 4628 --- [springboot-production-ready] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-01T14:53:54.738+05:30  INFO 4628 --- [springboot-production-ready] [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2025-01-01T14:53:55.072+05:30  INFO 4628 --- [springboot-production-ready] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-01T14:53:55.111+05:30  INFO 4628 --- [springboot-production-ready] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-01T14:53:55.579+05:30  INFO 4628 --- [springboot-production-ready] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ede035e
+2025-01-01T14:53:55.582+05:30  INFO 4628 --- [springboot-production-ready] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-01T14:53:55.666+05:30  INFO 4628 --- [springboot-production-ready] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.40
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-01T14:53:55.930+05:30  INFO 4628 --- [springboot-production-ready] [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.prod.entities.PostEntity
+2025-01-01T14:53:56.666+05:30  INFO 4628 --- [springboot-production-ready] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-01T14:53:56.718+05:30  INFO 4628 --- [springboot-production-ready] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-01T14:53:57.221+05:30  WARN 4628 --- [springboot-production-ready] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-01T14:53:57.607+05:30  INFO 4628 --- [springboot-production-ready] [main] pringbootProductionReadyApplicationTests : Started SpringbootProductionReadyApplicationTests in 5.971 seconds (process running for 7.509)
+2025-01-01T14:53:58.154+05:30  INFO 4628 --- [springboot-production-ready] [main] c.prod.clients.impl.StudentClientImpl    : Executing createStudent Method...
+2025-01-01T14:53:58.338+05:30  INFO 4628 --- [springboot-production-ready] [main] c.prod.clients.impl.StudentClientImpl    : SUCCESS in createStudent Method...
+2025-01-01T14:53:58.338+05:30 TRACE 4628 --- [springboot-production-ready] [main] c.prod.clients.impl.StudentClientImpl    : Saved Student : StudentDto(id=706, name=ViratKing, email=djskfjsdbf@gmail.com, age=19, role=USER, fees=100000.0, address=Delhi, isPassed=true, resultDate=2025-01-01)
+2025-01-01T14:53:58.367+05:30  INFO 4628 --- [springboot-production-ready] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-01T14:53:58.370+05:30  INFO 4628 --- [springboot-production-ready] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-01T14:53:58.388+05:30  INFO 4628 --- [springboot-production-ready] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-01T14:54:29.236+05:30  INFO 4821 --- [springboot-production-ready] [main] pringbootProductionReadyApplicationTests : Starting SpringbootProductionReadyApplicationTests using Java 23.0.1 with PID 4821 (started by pranav in /home/pranav/Spring/Backend-SpringBoot/springboot-production-ready)
+2025-01-01T14:54:29.239+05:30  INFO 4821 --- [springboot-production-ready] [main] pringbootProductionReadyApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2025-01-01T14:54:30.087+05:30  INFO 4821 --- [springboot-production-ready] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-01T14:54:30.145+05:30  INFO 4821 --- [springboot-production-ready] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
+2025-01-01T14:54:30.831+05:30  INFO 4821 --- [springboot-production-ready] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-01T14:54:30.898+05:30  INFO 4821 --- [springboot-production-ready] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-01T14:54:30.939+05:30  INFO 4821 --- [springboot-production-ready] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-01T14:54:31.062+05:30  INFO 4821 --- [springboot-production-ready] [main] o.h.e.boot.internal.EnversServiceImpl    : Envers integration enabled? : true
+2025-01-01T14:54:31.288+05:30  INFO 4821 --- [springboot-production-ready] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-01T14:54:31.324+05:30  INFO 4821 --- [springboot-production-ready] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-01T14:54:31.784+05:30  INFO 4821 --- [springboot-production-ready] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2fcc5f49
+2025-01-01T14:54:31.787+05:30  INFO 4821 --- [springboot-production-ready] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-01T14:54:31.894+05:30  INFO 4821 --- [springboot-production-ready] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.40
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-01T14:54:32.189+05:30  INFO 4821 --- [springboot-production-ready] [main] o.h.e.c.i.m.AuditMetadataGenerator       : Adding properties for entity: com.prod.entities.PostEntity
+2025-01-01T14:54:32.937+05:30  INFO 4821 --- [springboot-production-ready] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-01T14:54:32.993+05:30  INFO 4821 --- [springboot-production-ready] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-01T14:54:33.487+05:30  WARN 4821 --- [springboot-production-ready] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-01T14:54:33.905+05:30  INFO 4821 --- [springboot-production-ready] [main] pringbootProductionReadyApplicationTests : Started SpringbootProductionReadyApplicationTests in 5.187 seconds (process running for 7.097)
+2025-01-01T14:54:34.473+05:30  INFO 4821 --- [springboot-production-ready] [main] c.prod.clients.impl.StudentClientImpl    : Executing createStudent Method...
+2025-01-01T14:54:34.659+05:30  INFO 4821 --- [springboot-production-ready] [main] c.prod.clients.impl.StudentClientImpl    : SUCCESS in createStudent Method...
+2025-01-01T14:54:34.659+05:30 TRACE 4821 --- [springboot-production-ready] [main] c.prod.clients.impl.StudentClientImpl    : Saved Student : StudentDto(id=707, name=ViratKing, email=djskfjsdbf@gmail.com, age=19, role=USER, fees=100000.0, address=Delhi, isPassed=true, resultDate=2025-01-01)
+2025-01-01T14:54:34.693+05:30  INFO 4821 --- [springboot-production-ready] [main] c.prod.clients.impl.StudentClientImpl    : Executing getAllStudents Method...
+2025-01-01T14:54:35.444+05:30  INFO 4821 --- [springboot-production-ready] [main] c.prod.clients.impl.StudentClientImpl    : SUCCESS in getAllStudents Method...
+2025-01-01T14:54:35.457+05:30  INFO 4821 --- [springboot-production-ready] [main] c.prod.clients.impl.StudentClientImpl    : Executing getStudentById Method...
+2025-01-01T14:54:35.482+05:30  INFO 4821 --- [springboot-production-ready] [main] c.prod.clients.impl.StudentClientImpl    : SUCCESS in getStudentById Method...
+2025-01-01T14:54:35.483+05:30 TRACE 4821 --- [springboot-production-ready] [main] c.prod.clients.impl.StudentClientImpl    : Returned Student : StudentDto(id=1, name=Data, email=null, age=null, role=null, fees=null, address=Mumbai, isPassed=true, resultDate=2024-11-24)
+2025-01-01T14:54:35.496+05:30  INFO 4821 --- [springboot-production-ready] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-01T14:54:35.499+05:30  INFO 4821 --- [springboot-production-ready] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-01T14:54:35.510+05:30  INFO 4821 --- [springboot-production-ready] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-01 15:40:33 INFO  c.p.SpringbootProductionReadyApplication - Starting SpringbootProductionReadyApplication using Java 23.0.1 with PID 10302 (/home/pranav/Spring/Backend-SpringBoot/springboot-production-ready/target/classes started by pranav in /home/pranav/Spring/Backend-SpringBoot/springboot-production-ready)
+2025-01-01 15:40:33 INFO  c.p.SpringbootProductionReadyApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-01 15:40:34 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-01 15:40:34 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 1 JPA repository interface.
+2025-01-01 15:40:35 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 9090 (http)
+2025-01-01 15:40:35 INFO  o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2025-01-01 15:40:35 INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+2025-01-01 15:40:35 INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-01 15:40:35 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2025-01-01 15:40:35 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1731 ms
+2025-01-01 15:40:35 INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-01 15:40:35 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-01-01 15:40:35 INFO  o.h.e.b.i.EnversServiceImpl - Envers integration enabled? : true
+2025-01-01 15:40:35 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-01 15:40:35 INFO  c.z.h.HikariDataSource - HikariPool-2 - Starting...
+2025-01-01 15:40:35 INFO  c.z.h.p.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@126ea6d
+2025-01-01 15:40:35 INFO  c.z.h.HikariDataSource - HikariPool-2 - Start completed.
+2025-01-01 15:40:35 INFO  o.h.o.c.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 8.0.40
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-01 15:40:35 INFO  o.h.e.c.i.m.AuditMetadataGenerator - Adding properties for entity: com.prod.entities.PostEntity
+2025-01-01 15:40:35 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-01 15:40:35 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-01 15:40:35 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-01 15:40:36 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-01-01 15:40:36 INFO  o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+2025-01-01 15:40:36 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+2025-01-01 15:40:36 INFO  c.p.SpringbootProductionReadyApplication - Started SpringbootProductionReadyApplication in 2.664 seconds (process running for 596.499)
+2025-01-01 15:40:36 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-01-01 15:41:14 INFO  c.p.SpringbootProductionReadyApplicationTests - Starting SpringbootProductionReadyApplicationTests using Java 23.0.1 with PID 11802 (started by pranav in /home/pranav/Spring/Backend-SpringBoot/springboot-production-ready)
+2025-01-01 15:41:14 INFO  c.p.SpringbootProductionReadyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-01-01 15:41:17 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-01 15:41:17 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 272 ms. Found 1 JPA repository interface.
+2025-01-01 15:41:19 INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-01 15:41:19 INFO  o.h.Version - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-01 15:41:19 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-01-01 15:41:20 INFO  o.h.e.b.i.EnversServiceImpl - Envers integration enabled? : true
+2025-01-01 15:41:20 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-01 15:41:20 INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2025-01-01 15:41:24 INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68f2363
+2025-01-01 15:41:24 INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-01 15:41:24 INFO  o.h.o.c.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.40
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-01 15:41:25 INFO  o.h.e.c.i.m.AuditMetadataGenerator - Adding properties for entity: com.prod.entities.PostEntity
+2025-01-01 15:41:28 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-01 15:41:28 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+                                                                                                                                                                                                                                                                         2025-01-01 15:50:34 INFO  c.p.SpringbootProductionReadyApplicationTests - Starting SpringbootProductionReadyApplicationTests using Java 23.0.1 with PID 3787 (started by pranav in /home/pranav/Spring/Backend-SpringBoot/springboot-production-ready)
+2025-01-01 15:50:34 INFO  c.p.SpringbootProductionReadyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-01-01 15:50:37 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-01 15:50:37 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60 ms. Found 1 JPA repository interface.
+2025-01-01 15:50:38 INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-01 15:50:38 INFO  o.h.Version - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-01 15:50:38 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-01-01 15:50:38 INFO  o.h.e.b.i.EnversServiceImpl - Envers integration enabled? : true
+2025-01-01 15:50:39 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-01 15:50:39 INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2025-01-01 15:50:39 INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@774013dc
+2025-01-01 15:50:39 INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-01 15:50:40 INFO  o.h.o.c.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.40
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-01 15:50:40 INFO  o.h.e.c.i.m.AuditMetadataGenerator - Adding properties for entity: com.prod.entities.PostEntity
+2025-01-01 15:50:41 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-01 15:50:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-01 15:50:42 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-01 15:50:43 INFO  c.p.SpringbootProductionReadyApplicationTests - Started SpringbootProductionReadyApplicationTests in 9.796 seconds (process running for 14.074)
+2025-01-01 15:50:44 INFO  c.p.c.i.StudentClientImpl - Executing createStudent Method...
+2025-01-01 15:50:44 ERROR c.p.c.i.StudentClientImpl - Client Error Occurred createStudent...
+2025-01-01 15:50:44 INFO  c.p.c.i.StudentClientImpl - Executing getAllStudents Method...
+2025-01-01 15:50:44 ERROR c.p.c.i.StudentClientImpl - Client Error getAllStudent Method...
+2025-01-01 15:50:44 INFO  c.p.c.i.StudentClientImpl - Executing getStudentById Method...
+2025-01-01 15:50:44 ERROR c.p.c.i.StudentClientImpl - Client Error Occurred getStudentById ...
+2025-01-01 15:50:44 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-01 15:50:44 INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-01 15:50:44 INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-01-01 15:52:23 INFO  c.p.SpringbootProductionReadyApplicationTests - Starting SpringbootProductionReadyApplicationTests using Java 23.0.1 with PID 4125 (started by pranav in /home/pranav/Spring/Backend-SpringBoot/springboot-production-ready)
+2025-01-01 15:52:23 INFO  c.p.SpringbootProductionReadyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-01-01 15:52:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-01 15:52:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 1 JPA repository interface.
+2025-01-01 15:52:24 INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-01 15:52:24 INFO  o.h.Version - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-01 15:52:24 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-01-01 15:52:25 INFO  o.h.e.b.i.EnversServiceImpl - Envers integration enabled? : true
+2025-01-01 15:52:25 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-01 15:52:25 INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2025-01-01 15:52:25 INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37fca349
+2025-01-01 15:52:25 INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-01 15:52:25 INFO  o.h.o.c.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.40
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-01 15:52:26 INFO  o.h.e.c.i.m.AuditMetadataGenerator - Adding properties for entity: com.prod.entities.PostEntity
+2025-01-01 15:52:26 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-01 15:52:26 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-01 15:52:27 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-01 15:52:28 INFO  c.p.SpringbootProductionReadyApplicationTests - Started SpringbootProductionReadyApplicationTests in 5.253 seconds (process running for 6.85)
+2025-01-01 15:52:28 INFO  c.p.c.i.StudentClientImpl - Executing createStudent Method...
+2025-01-01 15:52:29 INFO  c.p.c.i.StudentClientImpl - SUCCESS in createStudent Method...
+2025-01-01 15:52:29 TRACE c.p.c.i.StudentClientImpl - Saved Student : StudentDto(id=2302, name=ViratKing, email=djskfjsdbf@gmail.com, age=19, role=USER, fees=100000.0, address=Delhi, isPassed=true, resultDate=2025-01-01)
+2025-01-01 15:52:29 INFO  c.p.c.i.StudentClientImpl - Executing getAllStudents Method...
+2025-01-01 15:52:29 INFO  c.p.c.i.StudentClientImpl - SUCCESS in getAllStudents Method...
+2025-01-01 15:52:29 INFO  c.p.c.i.StudentClientImpl - Executing getStudentById Method...
+2025-01-01 15:52:29 INFO  c.p.c.i.StudentClientImpl - SUCCESS in getStudentById Method...
+2025-01-01 15:52:29 TRACE c.p.c.i.StudentClientImpl - Returned Student : StudentDto(id=1, name=Data, email=null, age=null, role=null, fees=null, address=Mumbai, isPassed=true, resultDate=2024-11-24)
+2025-01-01 15:52:29 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-01 15:52:29 INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-01 15:52:29 INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

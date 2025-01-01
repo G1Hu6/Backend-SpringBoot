@@ -1,0 +1,72 @@
+l15:55:39.238 [main] INFO  c.p.SpringbootProductionReadyApplicationTests - Starting SpringbootProductionReadyApplicationTests using Java 23.0.1 with PID 5867 (started by pranav in /home/pranav/Spring/Backend-SpringBoot/springboot-production-ready)
+l15:55:39.241 [main] INFO  c.p.SpringbootProductionReadyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+l15:55:40.384 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+l15:55:40.500 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 101 ms. Found 1 JPA repository interface.
+l15:55:41.544 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+l15:55:41.645 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.4.Final
+l15:55:41.713 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+l15:55:41.898 [main] INFO  o.h.e.b.internal.EnversServiceImpl - Envers integration enabled? : true
+l15:55:42.235 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+l15:55:42.279 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+l15:55:42.902 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4de158ca
+l15:55:42.905 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+l15:55:43.005 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.40
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+l15:55:43.369 [main] INFO  o.h.e.c.i.m.AuditMetadataGenerator - Adding properties for entity: com.prod.entities.PostEntity
+l15:55:44.395 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+l15:55:44.474 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+l15:55:45.152 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+l15:55:45.670 [main] INFO  c.p.SpringbootProductionReadyApplicationTests - Started SpringbootProductionReadyApplicationTests in 7.146 seconds (process running for 9.407)
+l15:55:46.303 [main] INFO  c.p.clients.impl.StudentClientImpl - Executing createStudent Method...
+l15:55:46.508 [main] INFO  c.p.clients.impl.StudentClientImpl - SUCCESS in createStudent Method...
+l15:55:46.508 [main] TRACE c.p.clients.impl.StudentClientImpl - Saved Student : StudentDto(id=2303, name=ViratKing, email=djskfjsdbf@gmail.com, age=19, role=USER, fees=100000.0, address=Delhi, isPassed=true, resultDate=2025-01-01)
+l15:55:46.545 [main] INFO  c.p.clients.impl.StudentClientImpl - Executing getAllStudents Method...
+l15:55:46.591 [main] INFO  c.p.clients.impl.StudentClientImpl - SUCCESS in getAllStudents Method...
+l15:55:46.604 [main] INFO  c.p.clients.impl.StudentClientImpl - Executing getStudentById Method...
+l15:55:46.618 [main] INFO  c.p.clients.impl.StudentClientImpl - SUCCESS in getStudentById Method...
+l15:55:46.618 [main] TRACE c.p.clients.impl.StudentClientImpl - Returned Student : StudentDto(id=1, name=Data, email=null, age=null, role=null, fees=null, address=Mumbai, isPassed=true, resultDate=2024-11-24)
+l15:55:46.635 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+l15:55:46.637 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+l15:55:46.647 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+l15:56:22.933 [main] INFO  c.p.SpringbootProductionReadyApplicationTests - Starting SpringbootProductionReadyApplicationTests using Java 23.0.1 with PID 6076 (started by pranav in /home/pranav/Spring/Backend-SpringBoot/springboot-production-ready)
+l15:56:22.935 [main] INFO  c.p.SpringbootProductionReadyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+l15:56:24.056 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+l15:56:24.152 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 82 ms. Found 1 JPA repository interface.
+l15:56:25.073 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+l15:56:25.146 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.4.Final
+l15:56:25.191 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+l15:56:25.326 [main] INFO  o.h.e.b.internal.EnversServiceImpl - Envers integration enabled? : true
+l15:56:25.692 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+l15:56:25.761 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+l15:56:26.318 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@474619d9
+l15:56:26.321 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+l15:56:26.470 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.40
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+l15:56:26.820 [main] INFO  o.h.e.c.i.m.AuditMetadataGenerator - Adding properties for entity: com.prod.entities.PostEntity
+l15:56:27.810 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+l15:56:27.890 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+l15:56:28.611 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+l15:56:29.209 [main] INFO  c.p.SpringbootProductionReadyApplicationTests - Started SpringbootProductionReadyApplicationTests in 7.029 seconds (process running for 9.158)
+l15:56:29.993 [main] INFO  c.p.clients.impl.StudentClientImpl - Executing createStudent Method...
+l15:56:30.201 [main] INFO  c.p.clients.impl.StudentClientImpl - SUCCESS in createStudent Method...
+l15:56:30.201 [main] TRACE c.p.clients.impl.StudentClientImpl - Saved Student : StudentDto(id=2304, name=ViratKing, email=djskfjsdbf@gmail.com, age=19, role=USER, fees=100000.0, address=Delhi, isPassed=true, resultDate=2025-01-01)
+l15:56:30.241 [main] INFO  c.p.clients.impl.StudentClientImpl - Executing getAllStudents Method...
+l15:56:30.271 [main] INFO  c.p.clients.impl.StudentClientImpl - SUCCESS in getAllStudents Method...
+l15:56:30.283 [main] INFO  c.p.clients.impl.StudentClientImpl - Executing getStudentById Method...
+l15:56:30.301 [main] INFO  c.p.clients.impl.StudentClientImpl - SUCCESS in getStudentById Method...
+l15:56:30.301 [main] TRACE c.p.clients.impl.StudentClientImpl - Returned Student : StudentDto(id=1, name=Data, email=null, age=null, role=null, fees=null, address=Mumbai, isPassed=true, resultDate=2024-11-24)
+l15:56:30.321 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+l15:56:30.323 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+l15:56:30.339 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
