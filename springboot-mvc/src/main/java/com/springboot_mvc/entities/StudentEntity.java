@@ -8,15 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-
-
-
-
 /*
     lombok dependency is handling Getters, Setters and Constructors by itself.
 */
-
-
 @Getter
 @Setter
 @NoArgsConstructor
