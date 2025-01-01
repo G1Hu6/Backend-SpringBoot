@@ -58,13 +58,14 @@ public class StudentClientImpl implements StudentClient {
         try {
             ResponseEntity<ApiResponse<StudentDto>> apiResponseResponseEntity = restClient.post()
                     .uri("db/students")
+                    .body(studentDto)
                     .retrieve()
                     .onStatus(HttpStatusCode::is4xxClientError,(request, response) -> {
                         System.out.println(new String(response.getBody().readAllBytes()));
                         throw new ResourceNotFoundException("Could Not Create the Student");
-                    })
-                    .toEntity(new ParameterizedTypeReference<ApiResponse<StudentDto>>() {
+                    }).toEntity(new ParameterizedTypeReference<ApiResponse<StudentDto>>() {
                     });
+
             return apiResponseResponseEntity.getBody().getData();
         } catch (Exception e) {
             throw new RuntimeException(e);

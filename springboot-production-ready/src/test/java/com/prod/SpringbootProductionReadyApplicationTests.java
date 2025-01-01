@@ -35,7 +35,7 @@ class SpringbootProductionReadyApplicationTests {
 	@Test
 	void createStudent(){
 		StudentDto student = StudentDto.builder()
-						.age(19).email("djskfjsdbf@gmail.com").name("Virat King 18").fees(100000.0).role("USER").address("Delhi").isPassed(false).resultDate(LocalDate.now()).build();
+						.age(19).email("djskfjsdbf@gmail.com").name("ViratKing").fees(100000.0).role("USER").address("Delhi").isPassed(true).resultDate(LocalDate.now()).build();
 		System.out.println(studentClient.createStudent(student));
 	}
 
