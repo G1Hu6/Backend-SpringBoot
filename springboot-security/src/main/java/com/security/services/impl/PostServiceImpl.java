@@ -2,17 +2,21 @@ package com.security.services.impl;
 
 import com.security.dto.PostDto;
 import com.security.entities.PostEntity;
+import com.security.entities.UserEntity;
 import com.security.exceptions.ResourceNotFoundException;
 import com.security.repositories.PostRepository;
 import com.security.services.PostService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class PostServiceImpl implements PostService {
 
     private final PostRepository postRepository;
@@ -27,6 +31,9 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDto getPostById(Long id) {
+        // Logging current user with JWT
+        UserEntity user = (UserEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        log.info("Current User : {}", user);
         return modelMapper.map(postRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Post not found with id : " + id)), PostDto.class);
     }
@@ -41,6 +48,8 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDto insertNewPostByID(PostDto newPostDto) {
+
+
         PostEntity newPostEntity = modelMapper.map(newPostDto, PostEntity.class);
         return modelMapper.map(postRepository.save(newPostEntity), PostDto.class);
     }
