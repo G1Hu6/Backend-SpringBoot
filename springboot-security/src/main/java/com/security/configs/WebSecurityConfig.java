@@ -33,7 +33,7 @@ public class WebSecurityConfig {
                 //.formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer.loginPage("/new_login.html"))
                 .authorizeHttpRequests(auth -> auth
                                 //.anyRequest().authenticated()
-                                 .requestMatchers("/posts","/auth/**").permitAll()
+                                 .requestMatchers("/posts","/auth/**","/home.html").permitAll()
                                  .requestMatchers("/posts/**").permitAll()
                                  //.requestMatchers("/posts/**").hasAnyRole("ADMIN")
                                  //.anyRequest().authenticated()
