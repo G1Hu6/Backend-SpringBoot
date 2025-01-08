@@ -1,10 +1,13 @@
 package com.security.configs;
 
 import com.security.filters.JwtAuthFilter;
+import com.security.handler.OAuth2SuccessHandler;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -22,6 +25,8 @@ public class WebSecurityConfig {
 
     private final JwtAuthFilter jwtAuthFilter;
 
+    private final OAuth2SuccessHandler oAuth2SuccessHandler;
+
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity)throws Exception{
         return httpSecurity
@@ -35,9 +40,14 @@ public class WebSecurityConfig {
                                 //.requestMatchers("/posts/**").permitAll()
                                 //.requestMatchers("/posts").permitAll()
                 )
-                .csrf(AbstractHttpConfigurer::disable)
-                .sessionManagement(sessionConfig-> sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+//                .csrf(AbstractHttpConfigurer::disable)
+//                .sessionManagement(sessionConfig-> sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                .oauth2Login(
+                        oauth2login-> oauth2login
+                                .failureUrl("/login?error=true")
+                                .successHandler(oAuth2SuccessHandler)
+                )
                 .build();
 
     }
