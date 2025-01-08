@@ -5,7 +5,6 @@ import com.security.services.JWTService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.core.userdetails.User;
 
 @SpringBootTest
 class SpringbootSecurityApplicationTests {
@@ -20,7 +19,7 @@ class SpringbootSecurityApplicationTests {
 				.email("user@gmail.com")
 				.password("243wrw")
 				.build();
-		String token = jwtService.generateToken(userEntity);
+		String token = jwtService.generateAccessToken(userEntity);
 		System.out.println(token);
 
 		Long id = jwtService.getUserIdFromToken(token);

@@ -50,6 +50,6 @@ public class UserService implements UserDetailsService{
 //        );
 //        UserEntity userEntity = (UserEntity) authentication.getPrincipal();
 //
-//        return jwtService.generateToken(userEntity);
+//        return jwtService.generateAccessToken(userEntity);
 //    }
 }
