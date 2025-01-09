@@ -40,14 +40,14 @@ public class WebSecurityConfig {
                                 //.requestMatchers("/posts/**").permitAll()
                                 //.requestMatchers("/posts").permitAll()
                 )
-//                .csrf(AbstractHttpConfigurer::disable)
-//                .sessionManagement(sessionConfig-> sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                .oauth2Login(
-                        oauth2login-> oauth2login
-                                .failureUrl("/login?error=true")
-                                .successHandler(oAuth2SuccessHandler)
-                )
+                .csrf(AbstractHttpConfigurer::disable)
+                .sessionManagement(sessionConfig-> sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+//                .oauth2Login(
+//                        oauth2login-> oauth2login
+//                                .failureUrl("/login?error=true")
+//                                .successHandler(oAuth2SuccessHandler)
+//                )
                 .build();
 
     }
