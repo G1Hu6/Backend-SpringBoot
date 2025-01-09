@@ -1,5 +1,6 @@
 package com.security.entities;
 
+import com.security.entities.enums.Permission;
 import com.security.entities.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -32,11 +33,20 @@ public class UserEntity implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    private Set<Permission> permissions;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles.stream()
+        Set<SimpleGrantedAuthority> authorities = roles.stream()
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role.name()))
                 .collect(Collectors.toSet());
+
+        permissions
+                .forEach(permission -> authorities.add(new SimpleGrantedAuthority(permission.name())));
+
+        return authorities;
     }
 
     @Override

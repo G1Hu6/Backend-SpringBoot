@@ -19,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static com.security.entities.enums.Permission.*;
 import static com.security.entities.enums.Role.ADMIN;
 import static com.security.entities.enums.Role.CREATOR;
 
@@ -41,7 +42,10 @@ public class WebSecurityConfig {
                                 //.anyRequest().authenticated()
                                  .requestMatchers(PUBLIC_ROUTES).permitAll()
                                  .requestMatchers(HttpMethod.GET ,"/posts/**").permitAll()
-                                 .requestMatchers(HttpMethod.POST ,"/posts/**").hasAnyRole(ADMIN.name(), CREATOR.name())
+                                 .requestMatchers(HttpMethod.POST,"/posts/**").hasAnyRole(CREATOR.name(), USER_CREATE.name(), POST_CREATE.name())
+                                 .requestMatchers(HttpMethod.PUT,"/posts/**").hasAnyRole(CREATOR.name(), USER_UPDATE.name(), POST_CREATE.name())
+                                 .requestMatchers(HttpMethod.DELETE,"/posts/**").hasAnyRole(CREATOR.name(), USER_DELETE.name(), POST_DELETE.name())
+                                 //.requestMatchers(HttpMethod.POST ,"/posts/**").hasAnyRole(ADMIN.name(), CREATOR.name())
                                  //.requestMatchers("/posts/**").hasAnyRole("ADMIN")
                                  //.anyRequest().authenticated()
                                 //.requestMatchers("/posts/**").permitAll()
