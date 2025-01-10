@@ -8,6 +8,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.nio.file.AccessDeniedException;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -25,7 +27,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiError> handleAuthenticationException(AuthenticationException exception){
         ApiError apiError = ApiError.builder()
                 .httpStatus(HttpStatus.UNAUTHORIZED)
-                .message(exception.getMessage())
+                .message(exception.getLocalizedMessage())
                 .build();
         return new ResponseEntity<>(apiError,HttpStatus.UNAUTHORIZED);
     }
@@ -39,9 +41,18 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiError> handleJwtException(JwtException exception){
         ApiError apiError = ApiError.builder()
                 .httpStatus(HttpStatus.UNAUTHORIZED)
-                .message(exception.getMessage())
+                .message(exception.getLocalizedMessage())
                 .build();
         return new ResponseEntity<>(apiError,HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ApiError> handleAccessDeniedException(AccessDeniedException exception){
+        ApiError apiError = ApiError.builder()
+                .httpStatus(HttpStatus.FORBIDDEN)
+                .message(exception.getLocalizedMessage())
+                .build();
+        return new ResponseEntity<>(apiError,HttpStatus.FORBIDDEN);
     }
 
 }

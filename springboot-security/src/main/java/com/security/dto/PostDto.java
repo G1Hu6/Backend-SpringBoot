@@ -1,5 +1,6 @@
 package com.security.dto;
 
+import com.security.entities.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,4 +17,6 @@ public class PostDto {
     private String name;
 
     private String description;
+
+    private UserEntity author;
 }

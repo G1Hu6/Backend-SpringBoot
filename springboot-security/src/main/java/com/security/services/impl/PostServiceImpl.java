@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,8 +50,12 @@ public class PostServiceImpl implements PostService {
     @Override
     public PostDto insertNewPostByID(PostDto newPostDto) {
 
+        // Get the current logged in user...
+        UserEntity currentUser = (UserEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         PostEntity newPostEntity = modelMapper.map(newPostDto, PostEntity.class);
+        // Save the current author
+        newPostEntity.setAuthor(currentUser);
         return modelMapper.map(postRepository.save(newPostEntity), PostDto.class);
     }
 }
