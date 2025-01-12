@@ -95,4 +95,11 @@ public class StudentService {
         log.info("Successfully deleted student with id : {}", id);
         return true;
     }
+
+    public List<StudentDTO> findByEmail(String email){
+        log.info("Fetching all students with email : {}", email);
+        return studentRepository.findByEmail(email).stream()
+                .map(studentEntity -> modelMapper.map(studentEntity, StudentDTO.class))
+                .toList();
+    }
 }
