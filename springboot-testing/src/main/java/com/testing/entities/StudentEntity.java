@@ -12,6 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
+@ToString
 @Table(name = "students")
 public class StudentEntity {
 

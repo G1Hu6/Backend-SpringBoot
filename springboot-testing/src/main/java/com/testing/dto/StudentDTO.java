@@ -2,16 +2,14 @@ package com.testing.dto;
 
 
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 // Simple DTO(Data Transfer Object) for communicate between client and controllers
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class StudentDTO {
 
     private Long id;

@@ -29,10 +29,8 @@ public class DBController {
 
     @GetMapping(path = "/{stdId}")
     public ResponseEntity<StudentDTO> getStudentByIdFromH2DB(@PathVariable Long stdId){
-        Optional<StudentDTO> studentDTO = studentService.getStudentById(stdId);
-        return studentDTO
-                .map(studentDTO1 -> ResponseEntity.ok(studentDTO1))
-                .orElseThrow(() -> new ResponseNotFoundException("Student not found with id :" + stdId));
+        StudentDTO studentDTO = studentService.getStudentById(stdId);
+        return ResponseEntity.ok(studentDTO);
     }
 
     // @Valid annotation is added to ensure that dto class must have valid fields.

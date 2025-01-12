@@ -27,19 +27,26 @@ public class StudentService {
     private ModelMapper modelMapper;
     // ModelMapper class is used to convert StudentEntity into StudentDTO
 
-    public Optional<StudentDTO> getStudentById(Long id){
+    public StudentDTO getStudentById(Long id){
         log.info("Getting student by id : {}", id);
-        Optional<StudentEntity> studentEntity = studentRepository.findById(id);
+        StudentEntity studentEntity = studentRepository.findById(id).orElseThrow(() -> new ResponseNotFoundException("Student not found with id :" + id));
         //return new StudentDTO(studentEntity.getName(),studentEntity.getAddress(),studentEntity.getId(),studentEntity.getIsPassed(),studentEntity.getResultDate());
 
         log.info("Successfully fetched student by id : {}", id);
-        return studentEntity.map(studentEntity1 -> modelMapper.map(studentEntity1,StudentDTO.class));
+        return  modelMapper.map(studentEntity ,StudentDTO.class);
     }
 
     public StudentDTO insertStudent(StudentDTO studentDTO){
         // Here we perform different operations such as
         // log in...
         log.info("Inserting new student : {}", studentDTO);
+
+        List<StudentEntity> studentsList = studentRepository.findByEmail(studentDTO.getEmail());
+        if(!studentsList.isEmpty()){
+            log.error("Student already exists with email : {}", studentDTO.getEmail());
+            throw new ResponseNotFoundException("Student already exists with email :" + studentDTO.getEmail());
+        }
+
         StudentEntity toSaveEntity = modelMapper.map(studentDTO,StudentEntity.class);
         studentRepository.save(toSaveEntity);
         log.info("Successfully inserted student with id : {}", toSaveEntity.getId());
