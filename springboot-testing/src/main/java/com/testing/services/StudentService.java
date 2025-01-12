@@ -1,0 +1,98 @@
+package com.testing.services;
+
+import com.testing.dto.StudentDTO;
+import com.testing.entities.StudentEntity;
+import com.testing.exceptions.ResponseNotFoundException;
+import com.testing.repositories.StudentRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
+
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+@Slf4j
+public class StudentService {
+
+    @Autowired
+    private StudentRepository studentRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
+    // ModelMapper class is used to convert StudentEntity into StudentDTO
+
+    public Optional<StudentDTO> getStudentById(Long id){
+        log.info("Getting student by id : {}", id);
+        Optional<StudentEntity> studentEntity = studentRepository.findById(id);
+        //return new StudentDTO(studentEntity.getName(),studentEntity.getAddress(),studentEntity.getId(),studentEntity.getIsPassed(),studentEntity.getResultDate());
+
+        log.info("Successfully fetched student by id : {}", id);
+        return studentEntity.map(studentEntity1 -> modelMapper.map(studentEntity1,StudentDTO.class));
+    }
+
+    public StudentDTO insertStudent(StudentDTO studentDTO){
+        // Here we perform different operations such as
+        // log in...
+        log.info("Inserting new student : {}", studentDTO);
+        StudentEntity toSaveEntity = modelMapper.map(studentDTO,StudentEntity.class);
+        studentRepository.save(toSaveEntity);
+        log.info("Successfully inserted student with id : {}", toSaveEntity.getId());
+        return modelMapper.map(toSaveEntity,StudentDTO.class);
+    }
+
+    public List<StudentDTO> getAllStudents(){
+        log.info("Getting all students...");
+        List<StudentEntity> allStudents = studentRepository.findAll();
+
+        log.info("Successfully fetched all students");
+        return allStudents
+                .stream()
+                .map(studentEntity -> modelMapper.map(studentEntity,StudentDTO.class))
+                .collect(Collectors.toList());
+    }
+
+    public void isStudentExistsById(Long id){
+        boolean isExists = studentRepository.existsById(id);
+        log.error("Student not found with id : {}", id);
+        if(!isExists)throw new ResponseNotFoundException("Student not found with id :" + id);
+    }
+
+    public StudentDTO updateStudentById(StudentDTO studentDTO, Long id){
+        isStudentExistsById(id);
+        log.info("Updating existing student with id : {}", id);
+        StudentEntity studentEntity = modelMapper.map(studentDTO, StudentEntity.class);
+        studentEntity.setId(id);
+
+        log.info("Successfully updated existing student with id : {}", id);
+        return modelMapper.map(studentRepository.save(studentEntity), StudentDTO.class);
+    }
+
+    public StudentDTO partiallyUpdateStudentById(Map<String, Object> updates, Long id){
+        isStudentExistsById(id);
+        log.info("Partially Updating existing student with id : {}", id);
+        StudentEntity studentEntity = studentRepository.findById(id).get(); // Not null
+        updates.forEach((field,value) -> {
+            Field fieldToBeUpdate =  ReflectionUtils.findField( StudentEntity.class, field);
+            if(fieldToBeUpdate != null){
+                fieldToBeUpdate.setAccessible(true);
+                ReflectionUtils.setField(fieldToBeUpdate,studentEntity,value);
+            }
+        });
+
+        log.info("Successfully partially updated student with id : {}", id);
+        return modelMapper.map(studentRepository.save(studentEntity), StudentDTO.class);
+    }
+
+    public Boolean deleteStudentById(Long id){
+        isStudentExistsById(id);
+        studentRepository.deleteById(id);
+        log.info("Successfully deleted student with id : {}", id);
+        return true;
+    }
+}
