@@ -4,6 +4,8 @@ package com.testing.dto;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
+import java.util.Objects;
+
 // Simple DTO(Data Transfer Object) for communicate between client and controllers
 @Getter
 @Setter
@@ -11,7 +13,6 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class StudentDTO {
-
     private Long id;
 
     @NotBlank(message = "Name must be not null and valid")
@@ -21,4 +22,16 @@ public class StudentDTO {
     @Email(message = "Email must be valid")
     @NotBlank(message = "Email must be not null and valid")
     private String email;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        StudentDTO that = (StudentDTO) o;
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getEmail(), that.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getEmail());
+    }
 }

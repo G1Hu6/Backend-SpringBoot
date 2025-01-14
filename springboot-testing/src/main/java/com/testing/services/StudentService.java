@@ -29,7 +29,11 @@ public class StudentService {
 
     public StudentDTO getStudentById(Long id){
         log.info("Getting student by id : {}", id);
-        StudentEntity studentEntity = studentRepository.findById(id).orElseThrow(() -> new ResponseNotFoundException("Student not found with id :" + id));
+        StudentEntity studentEntity = studentRepository.findById(id)
+                .orElseThrow(() -> {
+                    log.error("Student not found with id : {}",id);
+                    return new ResponseNotFoundException("Student not found with id : " + id);
+                });
         //return new StudentDTO(studentEntity.getName(),studentEntity.getAddress(),studentEntity.getId(),studentEntity.getIsPassed(),studentEntity.getResultDate());
 
         log.info("Successfully fetched student by id : {}", id);
@@ -66,8 +70,10 @@ public class StudentService {
 
     public void isStudentExistsById(Long id){
         boolean isExists = studentRepository.existsById(id);
-        log.error("Student not found with id : {}", id);
-        if(!isExists)throw new ResponseNotFoundException("Student not found with id :" + id);
+        if(!isExists){
+            log.error("Student not found with id : {}", id);
+            throw new ResponseNotFoundException("Student not found with id : " + id);
+        }
     }
 
     public StudentDTO updateStudentById(StudentDTO studentDTO, Long id){
