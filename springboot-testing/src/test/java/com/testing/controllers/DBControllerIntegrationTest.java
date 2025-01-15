@@ -20,37 +20,9 @@ import java.util.HashMap;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-@AutoConfigureWebTestClient(timeout = "100000")
-@Import(TestContainerConfig.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class DBControllerIntegrationTest {
-
-    @Autowired
-    private WebTestClient webTestClient;
-
-    @Autowired
-    private StudentRepository studentRepository;
-
+class DBControllerIntegrationTest extends AbstractIntegrationTest{
     @Autowired
     private ModelMapper modelMapper;
-
-    private StudentEntity testStudent;
-    private StudentDTO testStudentDto;
-
-    @Test
-    @BeforeEach
-    void setUp(){
-        testStudent = StudentEntity.builder()
-                .name("Rushi")
-                .email("rushi.karle@gmail.com")
-                .build();
-
-        testStudentDto = StudentDTO.builder()
-                .name("Rushi")
-                .email("rushi.karle@gmail.com")
-                .build();
-        studentRepository.deleteAll();
-    }
 
     @Test
     void testGetStudentById_whenStudentIsExists_thenReturnStudent(){
