@@ -1,0 +1,112 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > StudentEntity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.testing.entities</a>
+</div>
+
+<h1>Coverage Summary for Class: StudentEntity (com.testing.entities)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">StudentEntity$HibernateInstantiator$8AlA2x5X</td>
+  </tr>
+  <tr>
+    <td class="name">StudentEntity$HibernateInstantiator$cVgZBFXF</td>
+  </tr>
+  <tr>
+    <td class="name">StudentEntity$HibernateInstantiator$yfTHvryH</td>
+  </tr>
+  <tr>
+    <td class="name">StudentEntity$HibernateProxy$d5rt6t5p</td>
+  </tr>
+  <tr>
+    <td class="name">StudentEntity$HibernateProxy$e9QDsJJh</td>
+  </tr>
+  <tr>
+    <td class="name">StudentEntity$HibernateProxy$RAFguGIn</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.testing.entities;
+&nbsp;
+&nbsp;import jakarta.persistence.*;
+&nbsp;import lombok.*;
+&nbsp;
+&nbsp;/*
+&nbsp;    lombok dependency is handling Getters, Setters and Constructors by itself.
+&nbsp;*/
+&nbsp;@Getter
+&nbsp;@Setter
+&nbsp;@NoArgsConstructor
+&nbsp;@AllArgsConstructor
+&nbsp;@Builder
+&nbsp;@Entity
+&nbsp;@ToString
+&nbsp;@Table(name = &quot;students&quot;)
+&nbsp;public class StudentEntity {
+&nbsp;
+&nbsp;    @Id
+&nbsp;    @GeneratedValue(strategy = GenerationType.AUTO)
+&nbsp;    private Long id;
+&nbsp;
+&nbsp;    private String name;
+&nbsp;
+&nbsp;    private String email;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-15 14:34</div>
+</div>
+</body>
+</html>

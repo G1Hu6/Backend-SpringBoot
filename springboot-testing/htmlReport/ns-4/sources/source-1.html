@@ -1,0 +1,184 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > DBController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.testing.controllers</a>
+</div>
+
+<h1>Coverage Summary for Class: DBController (com.testing.controllers)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DBController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71.4%
+  </span>
+  <span class="absValue">
+    (5/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    25%
+  </span>
+  <span class="absValue">
+    (1/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    58.3%
+  </span>
+  <span class="absValue">
+    (7/12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.testing.controllers;
+&nbsp;
+&nbsp;import com.testing.dto.StudentDTO;
+&nbsp;import com.testing.exceptions.ResponseNotFoundException;
+&nbsp;import com.testing.services.StudentService;
+&nbsp;import jakarta.validation.Valid;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.*;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.NoSuchElementException;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@RequestMapping(path = &quot;/db/students&quot;)
+<b class="fc">&nbsp;public class DBController {</b>
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private StudentService studentService;
+&nbsp;
+&nbsp;    @GetMapping
+&nbsp;    public ResponseEntity&lt;List&lt;StudentDTO&gt;&gt; getAllStudentsFromH2DB(){
+&nbsp;
+<b class="nc">&nbsp;        return ResponseEntity.ok(studentService.getAllStudents());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(path = &quot;/{stdId}&quot;)
+&nbsp;    public ResponseEntity&lt;StudentDTO&gt; getStudentByIdFromH2DB(@PathVariable Long stdId){
+<b class="fc">&nbsp;        StudentDTO studentDTO = studentService.getStudentById(stdId);</b>
+<b class="fc">&nbsp;        return ResponseEntity.ok(studentDTO);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // @Valid annotation is added to ensure that dto class must have valid fields.
+&nbsp;    @PostMapping
+&nbsp;    public ResponseEntity&lt;StudentDTO&gt; insertStudentToH2DB(@RequestBody @Valid StudentDTO student){
+&nbsp;
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(studentService.insertStudent(student), HttpStatus.CREATED);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PutMapping(path = &quot;{stdId}&quot;)
+&nbsp;    public ResponseEntity&lt;StudentDTO&gt; updateStudentByIdToH2DB(@RequestBody StudentDTO student, @PathVariable Long stdId){
+<b class="fc">&nbsp;        return ResponseEntity.ok(studentService.updateStudentById(student,stdId));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PatchMapping(path = &quot;{stdId}&quot;)
+&nbsp;    public ResponseEntity&lt;StudentDTO&gt; partiallyUpdateStudentByIdToH2DB(@RequestBody Map&lt;String, Object&gt; updates, @PathVariable Long stdId){
+<b class="nc">&nbsp;        StudentDTO studentDTO = studentService.partiallyUpdateStudentById(updates,stdId);</b>
+<b class="nc">&nbsp;        if(studentDTO == null)return ResponseEntity.notFound().build();</b>
+<b class="nc">&nbsp;        return ResponseEntity.ok(studentDTO);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @DeleteMapping(path = &quot;{stdId}&quot;)
+&nbsp;    public ResponseEntity&lt;Boolean&gt; deleteStudentByIdToH2DB(@PathVariable Long stdId){
+<b class="fc">&nbsp;        Boolean isDeleted = studentService.deleteStudentById(stdId);</b>
+<b class="pc">&nbsp;        if(isDeleted) return ResponseEntity.ok(true);</b>
+<b class="nc">&nbsp;        return ResponseEntity.notFound().build();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Use @ExceptionHandler annotation to handle specific exception in controller
+&nbsp;    /*
+&nbsp;    @ExceptionHandler
+&nbsp;    public ResponseEntity&lt;String&gt; handleStudentNotFound(NoSuchElementException exception){
+&nbsp;        return new ResponseEntity&lt;&gt;(&quot;Student not found&quot;, HttpStatus.NOT_FOUND);
+&nbsp;    }*/
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-15 14:34</div>
+</div>
+</body>
+</html>

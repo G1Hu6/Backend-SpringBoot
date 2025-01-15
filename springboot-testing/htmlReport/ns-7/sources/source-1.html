@@ -1,0 +1,234 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > StudentService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.testing.services</a>
+</div>
+
+<h1>Coverage Summary for Class: StudentService (com.testing.services)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">StudentService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (8/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (4/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    60.4%
+  </span>
+  <span class="absValue">
+    (32/53)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.testing.services;
+&nbsp;
+&nbsp;import com.testing.dto.StudentDTO;
+&nbsp;import com.testing.entities.StudentEntity;
+&nbsp;import com.testing.exceptions.ResponseNotFoundException;
+&nbsp;import com.testing.repositories.StudentRepository;
+&nbsp;import lombok.extern.slf4j.Slf4j;
+&nbsp;import org.modelmapper.ModelMapper;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;import org.springframework.util.ReflectionUtils;
+&nbsp;
+&nbsp;import java.lang.reflect.Field;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;@Service
+<b class="fc">&nbsp;@Slf4j</b>
+<b class="fc">&nbsp;public class StudentService {</b>
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private StudentRepository studentRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private ModelMapper modelMapper;
+&nbsp;    // ModelMapper class is used to convert StudentEntity into StudentDTO
+&nbsp;
+&nbsp;    public StudentDTO getStudentById(Long id){
+<b class="fc">&nbsp;        log.info(&quot;Getting student by id : {}&quot;, id);</b>
+<b class="fc">&nbsp;        StudentEntity studentEntity = studentRepository.findById(id)</b>
+<b class="fc">&nbsp;                .orElseThrow(() -&gt; {</b>
+<b class="fc">&nbsp;                    log.error(&quot;Student not found with id : {}&quot;,id);</b>
+<b class="fc">&nbsp;                    return new ResponseNotFoundException(&quot;Student not found with id : &quot; + id);</b>
+&nbsp;                });
+&nbsp;        //return new StudentDTO(studentEntity.getName(),studentEntity.getAddress(),studentEntity.getId(),studentEntity.getIsPassed(),studentEntity.getResultDate());
+&nbsp;
+<b class="fc">&nbsp;        log.info(&quot;Successfully fetched student by id : {}&quot;, id);</b>
+<b class="fc">&nbsp;        return  modelMapper.map(studentEntity ,StudentDTO.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public StudentDTO insertStudent(StudentDTO studentDTO){
+&nbsp;        // Here we perform different operations such as
+&nbsp;        // log in...
+<b class="fc">&nbsp;        log.info(&quot;Inserting new student : {}&quot;, studentDTO);</b>
+&nbsp;
+<b class="fc">&nbsp;        List&lt;StudentEntity&gt; studentsList = studentRepository.findByEmail(studentDTO.getEmail());</b>
+<b class="fc">&nbsp;        if(!studentsList.isEmpty()){</b>
+<b class="fc">&nbsp;            log.error(&quot;Student already exists with email : {}&quot;, studentDTO.getEmail());</b>
+<b class="fc">&nbsp;            throw new ResponseNotFoundException(&quot;Student already exists with email :&quot; + studentDTO.getEmail());</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        StudentEntity toSaveEntity = modelMapper.map(studentDTO,StudentEntity.class);</b>
+<b class="fc">&nbsp;        studentRepository.save(toSaveEntity);</b>
+<b class="fc">&nbsp;        log.info(&quot;Successfully inserted student with id : {}&quot;, toSaveEntity.getId());</b>
+<b class="fc">&nbsp;        return modelMapper.map(toSaveEntity,StudentDTO.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;StudentDTO&gt; getAllStudents(){
+<b class="nc">&nbsp;        log.info(&quot;Getting all students...&quot;);</b>
+<b class="nc">&nbsp;        List&lt;StudentEntity&gt; allStudents = studentRepository.findAll();</b>
+&nbsp;
+<b class="nc">&nbsp;        log.info(&quot;Successfully fetched all students&quot;);</b>
+<b class="nc">&nbsp;        return allStudents</b>
+<b class="nc">&nbsp;                .stream()</b>
+<b class="nc">&nbsp;                .map(studentEntity -&gt; modelMapper.map(studentEntity,StudentDTO.class))</b>
+<b class="nc">&nbsp;                .collect(Collectors.toList());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void isStudentExistsById(Long id){
+<b class="fc">&nbsp;        boolean isExists = studentRepository.existsById(id);</b>
+<b class="fc">&nbsp;        if(!isExists){</b>
+<b class="fc">&nbsp;            log.error(&quot;Student not found with id : {}&quot;, id);</b>
+<b class="fc">&nbsp;            throw new ResponseNotFoundException(&quot;Student not found with id : &quot; + id);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public StudentDTO updateStudentById(StudentDTO studentDTO, Long id){
+<b class="fc">&nbsp;        isStudentExistsById(id);</b>
+<b class="fc">&nbsp;        log.info(&quot;Updating existing student with id : {}&quot;, id);</b>
+<b class="fc">&nbsp;        StudentEntity studentEntity = modelMapper.map(studentDTO, StudentEntity.class);</b>
+<b class="fc">&nbsp;        studentEntity.setId(id);</b>
+&nbsp;
+<b class="fc">&nbsp;        log.info(&quot;Successfully updated existing student with id : {}&quot;, id);</b>
+<b class="fc">&nbsp;        return modelMapper.map(studentRepository.save(studentEntity), StudentDTO.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public StudentDTO partiallyUpdateStudentById(Map&lt;String, Object&gt; updates, Long id){
+<b class="nc">&nbsp;        isStudentExistsById(id);</b>
+<b class="nc">&nbsp;        log.info(&quot;Partially Updating existing student with id : {}&quot;, id);</b>
+<b class="nc">&nbsp;        StudentEntity studentEntity = studentRepository.findById(id).get(); // Not null</b>
+<b class="nc">&nbsp;        updates.forEach((field,value) -&gt; {</b>
+<b class="nc">&nbsp;            Field fieldToBeUpdate =  ReflectionUtils.findField( StudentEntity.class, field);</b>
+<b class="nc">&nbsp;            if(fieldToBeUpdate != null){</b>
+<b class="nc">&nbsp;                fieldToBeUpdate.setAccessible(true);</b>
+<b class="nc">&nbsp;                ReflectionUtils.setField(fieldToBeUpdate,studentEntity,value);</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        log.info(&quot;Successfully partially updated student with id : {}&quot;, id);</b>
+<b class="nc">&nbsp;        return modelMapper.map(studentRepository.save(studentEntity), StudentDTO.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Boolean deleteStudentById(Long id){
+<b class="fc">&nbsp;        isStudentExistsById(id);</b>
+<b class="fc">&nbsp;        studentRepository.deleteById(id);</b>
+<b class="fc">&nbsp;        log.info(&quot;Successfully deleted student with id : {}&quot;, id);</b>
+<b class="fc">&nbsp;        return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;StudentDTO&gt; findByEmail(String email){
+<b class="nc">&nbsp;        log.info(&quot;Fetching all students with email : {}&quot;, email);</b>
+<b class="nc">&nbsp;        return studentRepository.findByEmail(email).stream()</b>
+<b class="nc">&nbsp;                .map(studentEntity -&gt; modelMapper.map(studentEntity, StudentDTO.class))</b>
+<b class="nc">&nbsp;                .toList();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-15 14:34</div>
+</div>
+</body>
+</html>
