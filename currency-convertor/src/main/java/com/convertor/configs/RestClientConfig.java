@@ -23,7 +23,7 @@ public class RestClientConfig {
     @Bean
     @Qualifier("getRestClient")
     public RestClient getRestClient(){
-        String url = BASE_URL + "?apiKey=" + API_KEY;
+        String url = BASE_URL + "?apiKey=" + API_KEY + "&currencies=USD&base_currency=INR";
         log.info("Api url : {}", url);
         return RestClient.builder()
                 .baseUrl(url)
