@@ -14,7 +14,6 @@ public class DependencyInjectionTestApp implements CommandLineRunner {
     public static void main(String[] args) {
 
         SpringApplication.run(DependencyInjectionTestApp.class,args);
-
     }
 
     @Override
