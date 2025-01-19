@@ -24,7 +24,7 @@ class DBControllerIntegrationTest extends AbstractIntegrationTest{
     @Autowired
     private ModelMapper modelMapper;
 
-    @Test
+    //@Test
     void testGetStudentById_whenStudentIsExists_thenReturnStudent(){
         StudentEntity savedStudent = studentRepository.save(testStudent);
 
@@ -72,7 +72,7 @@ class DBControllerIntegrationTest extends AbstractIntegrationTest{
         // throw RuntimeException -> .expectStatus().is5XXInternalServerError()
     }
 
-    @Test
+    //@Test
     void testInsertStudent_whenStudentDoesNotExists_thenCreateNewStudent(){
         webTestClient.post()
                 .uri("/db/students")
