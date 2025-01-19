@@ -14,10 +14,10 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @Configuration
 public class RestClientConfig {
 
-    @Value("app.freeCurrency.api.url")
+    @Value("${app.freeCurrency.api.url}")
     private String BASE_URL;
 
-    @Value("app.freeCurrency.api.key")
+    @Value("${app.freeCurrency.api.key}")
     private String API_KEY;
 
     @Bean
